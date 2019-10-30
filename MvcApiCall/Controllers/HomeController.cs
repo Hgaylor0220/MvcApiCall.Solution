@@ -14,7 +14,7 @@ namespace MvcApiCall.Controllers
     {
         public IActionResult Index()
         {
-            var allArticles = Article.GetArticles("[YOUR_API_KEY_HERE]");
+            var allArticles = Article.GetArticles(EnvironmentVariables.ApiKey);
             return View(allArticles);
         }
 
