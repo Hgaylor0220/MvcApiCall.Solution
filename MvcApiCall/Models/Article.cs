@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace MvcApiCall.Models
 {
@@ -18,6 +19,7 @@ namespace MvcApiCall.Models
       var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+     
       List<Article> articleList = JsonConvert.DeserializeObject<List<Article>>(jsonResponse["results"].ToString());
 
       return articleList;

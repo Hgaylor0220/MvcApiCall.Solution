@@ -3,14 +3,14 @@ using RestSharp;
 
 namespace MvcApiCall.Models
 {
-    class ApiHelper
+  class ApiHelper
+  {
+    public static async Task<string> ApiCall(string apiKey)
     {
-        public static async Task<string> ApiCall (string apiKey)
-        {
-            RestClient client = new RestClient("http://apo.nytimes.com/svc/topstories/v2");
-            RestRequest request = new RestRequest($"home.json?api-key={apiKey}", Method.GET);
-            var response =await client.ExecuteTaskAsync(request);
-            return response.Content;
-        }
+      RestClient client = new RestClient("https://api.nytimes.com/svc/topstories/v2");
+      RestRequest request = new RestRequest($"home.json?api-key={apiKey}", Method.GET);
+      var response = await client.ExecuteTaskAsync(request);
+      return response.Content;
     }
+  }
 }
