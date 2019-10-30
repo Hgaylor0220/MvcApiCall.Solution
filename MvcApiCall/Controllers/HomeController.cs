@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MvcApiCall.Models;
+using MvcApiCall.Data;
+
 
 namespace MvcApiCall.Controllers
 {
@@ -12,7 +14,8 @@ namespace MvcApiCall.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var allArticles = Article.GetArticles("[YOUR_API_KEY_HERE]");
+            return View(allArticles);
         }
 
     }
